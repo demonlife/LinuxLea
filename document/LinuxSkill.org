@@ -25,3 +25,29 @@
    dpkg -i pkg.deb : install a package(debian)
    rpm -Uvh pkg.rpm : install a package(RPM)
    
+* Linux系统无效文件删除
+  http://www.ibm.com/developerworks/cn/linux/1310_caoyq_linuxdelete/index.html
+  find . -nouser | xargs rm -rf #删除当前目录下没有user的文件
+** fdupes工具
+   fdupes 是一个命令行工具，它会查找和删除指定目录的重复文件，
+   它通过文件的大小和 MD5 值进行比较 。一个字节一个字节进行对比。
+   apt-get install fdupes
+   在/etc查找重复文件： fdupes /etc
+   与linux命令组合使用，删除文件：
+   fdupes -r -f . | grep -v ^$ | tee duplicate.txt cat duplicate.txt | \
+   while read file; do rm -v "$file"; done
+   也可以与sed命令组合使用，删除文件：
+   fdupes -r -n -S /tmp | sed -r "s/^/#rm \"/" | sed -r "s/$/\"/" > duplicate.sh
+** 删除缓存文件
+   apt-get autoclean 清理旧版本的软件缓存
+   apt-get clean 清理所有软件缓存
+** geeqie工具
+   该工具可以找出相似图像文件，
+   apt-get install gqview
+** BleachBit
+   BleachBit 是一款开源免费的系统清理工具，功能类似 Windows 平台的 CCleaner。
+   BleachBit 能够删除隐藏的垃圾文件，以及简单的保护你的隐私。
+   擦除缓存，删除 cookies 文件，清除互联网浏览历史，删除未使用的本地化碎片日志，
+   删除临时文件，是一款非常实用的跨平台的系统清理工具.
+   apt-get install bleachbit   
+   
