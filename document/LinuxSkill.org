@@ -51,3 +51,6 @@
    删除临时文件，是一款非常实用的跨平台的系统清理工具.
    apt-get install bleachbit   
    
+* 其他
+** Ubuntu下自动安装雅黑字体
+   http://blog.prosight.me/blogs/722/
