@@ -70,3 +70,5 @@
 * 其他
 ** Ubuntu下自动安装雅黑字体
    http://blog.prosight.me/blogs/722/
+* 简单的SSH渗透技巧
+  http://www.tuicool.com/articles/rQj632J
