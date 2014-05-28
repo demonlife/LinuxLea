@@ -25,6 +25,12 @@
    dpkg -i pkg.deb : install a package(debian)
    rpm -Uvh pkg.rpm : install a package(RPM)
    
+** 常用命令
+   sudo !! #以root用户执行上一条命令
+   mtr google.com
+   altr + . #调出上一次命令使用的最后一个参数
+   man ascii #快速查看ascii的值
+   curl #获取外部ip地址
 * Linux系统无效文件删除
   http://www.ibm.com/developerworks/cn/linux/1310_caoyq_linuxdelete/index.html
   find . -nouser | xargs rm -rf #删除当前目录下没有user的文件
