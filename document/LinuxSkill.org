@@ -78,3 +78,12 @@
    http://blog.prosight.me/blogs/722/
 * 简单的SSH渗透技巧
   http://www.tuicool.com/articles/rQj632J
+* Man Page
+** 各个section的含义
+   1：用户命令  2：系统调用
+   3：库函数    4：特殊文件，如null
+   5：系统配置文件  6：游戏
+   7：其他杂项，如：bash-builtins
+   8：系统命令，如：ifconfig
+   用户命令通常位于/bin和/usr/bin目录下，系统管理命令通常位于/sbin和/usr/sbin目录
+   如果想查看库函数的printf，则使用man 3 printf
