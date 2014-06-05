@@ -31,6 +31,13 @@
    altr + . #调出上一次命令使用的最后一个参数
    man ascii #快速查看ascii的值
    curl #获取外部ip地址
+** htop
+   sudo aptitude install htop
+*** 使用
+    选中某个进程按下空格键可以高亮选中的进程，
+    -s：按指定的列排列。htop -s PID
+    -u：显示指定用户的进程信息列表， htop -u uname
+    -d：设置刷新时间，htop -d 100，注意：-d的单位是10微妙, -d 100就是1秒时间
 * Linux系统无效文件删除
   http://www.ibm.com/developerworks/cn/linux/1310_caoyq_linuxdelete/index.html
   find . -nouser | xargs rm -rf #删除当前目录下没有user的文件
