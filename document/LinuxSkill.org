@@ -37,6 +37,25 @@
    curl #获取外部ip地址
 ** htop
    sudo aptitude install htop
+** ip 命令
+   linux中的ip命令和ifconfig类似，但是功能更加强大，ifconfig是net-tools中被废弃使用的一个命令
+   ip是iproute2套件中一个命令，大多数的linux发行版本已经预装了iproute2，
+   源码地址：https://kernel.googlesource.com/pub/scm/linux/kernel/git/shemminger/iproute2.git
+   基本使用方法：
+   设置ip： sudo ip addr add ip/24 dev wlan0,注意：/24用于在无类域内路由选择（CIDR）中来显示
+   所用的子网掩码。
+   查看上述方式设置的ip是否生效： ip addr show wlan0
+   删除ip地址： sudo ip addr del ip/24 dev wlan0
+   列出路由表条目： ip route show
+   获取ip地址从那个路由包过来： ip route get ip
+   更改默认路由： sudo ip route add default via ip
+   显示网络统计数据： ip -s link
+   ip -s -s link ls p2p1：获取一个特定网络接口的信息，在网络接口名字后添加选项ls即可，使用多个
+   -s选项给该特定接口更详细的信息。
+   ip neighbour：地址解析
+   ip monitor all：监控netlink消息
+   激活或停止网络接口： sudo ip link set ppp0 down：停止，sudo ip link set ppp0 up：激活
+   ip route help: 获取route的帮助
 *** 使用
     选中某个进程按下空格键可以高亮选中的进程，
     -s：按指定的列排列。htop -s PID
@@ -99,3 +118,6 @@
    用户命令通常位于/bin和/usr/bin目录下，系统管理命令通常位于/sbin和/usr/sbin目录
    如果想查看库函数的printf，则使用man 3 printf
 
+* 同步ubuntu的系统时间
+  ntpdate cn.pool.ntp.org 
+  hwclock --systohc, 将系统时间写入硬件时间
