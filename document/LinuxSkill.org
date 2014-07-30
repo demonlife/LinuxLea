@@ -121,3 +121,26 @@
 * 同步ubuntu的系统时间
   ntpdate cn.pool.ntp.org 
   hwclock --systohc, 将系统时间写入硬件时间
+* 软件自启动
+  init并不是直接在/etc/init.d目录下找各个服务的启动脚本，而是在/etc/rcX.d/目录下查找，
+  该目录包含rc0.d,rc1.d等分别代表不同的init启动级别的子目录。
+  可以使用runlevel命令查看当前你的系统运行级别
+
+  rcx.d的目录下所包含的内容，内容全是一些符号链接，链接到上一级init目录中的脚本上。
+  这些符号链接名称都以S或K开头，后面跟一个数字以及该脚本所控制的服务名，
+  例如S10network。 当init从低的运行级向高的运行级过渡时，
+  它按照数字递增的顺序运行所有以S开头的脚本，S=start，即启动脚本对应的服务；
+  K=kill，即杀死脚本对应服务
+  中间这个数字十分重要，系统启动时按照这个数字递增执行所有S开头的脚本，
+  系统关闭时按照这个数字递减执行所有K开头的脚本
+* Ubuntu 技巧
+** 添加ppa源
+   方法1：图形化界面添加
+   打开ubuntu的软件管理中心， 选择菜单栏中的“edit”=>"software sources", 弹出一个框
+   选择“other software”页， 选择下方的“add”按钮，填上ppa源即可
+   方法2：使用命令
+   add-apt-repository ppa:xxxx
+** ppa源名的确定
+   1. 通过google： 搜索"软件名 + ppa"
+   2. 直接到https://launchpad.net 搜索
+   之后在页面中搜索ppa:xxx的字样
