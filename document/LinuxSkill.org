@@ -144,3 +144,11 @@
    1. 通过google： 搜索"软件名 + ppa"
    2. 直接到https://launchpad.net 搜索
    之后在页面中搜索ppa:xxx的字样
+** sudo 免密码
+   sudo visudo 或者 vi /etc/sudoers
+   添加如下内容：
+   用户名 ALL=(ALL) NOPASSWD:ALL
+   %用户组名 ALL=(ALL) NOPASSWD:ALL
+   sudoers文件的权限配置的格式如下
+   %用户组名 主机名=(权限) 命令
+   用户名 主机名=(权限) 命令
