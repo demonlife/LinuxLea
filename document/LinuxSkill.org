@@ -152,3 +152,13 @@
    sudoers文件的权限配置的格式如下
    %用户组名 主机名=(权限) 命令
    用户名 主机名=(权限) 命令
+* 使用sudo任然无权限操作的解决方法
+  https://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr
+  错误出现的原因之一是：
+  使用重定向时， 重定向先于sudo作用。
+  解决方法如下：
+  1. sudo sh -c 'ls -hal /root/ > /root/test.out' / sudo -s 'cmd'
+  2. 新建一个脚本文件，然后使用sudo 执行该脚本
+  3. sudo -s， 使用root账号登陆
+  4. 使用tee， sudo ls -hal /root/ | sudo tee /root/test.out > /dev/null
+     重定向到/dev/null是为了防止命令结果输出到控制台中
